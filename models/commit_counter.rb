@@ -27,7 +27,7 @@ class CommitCounter
 
   private
   def repos_for username
-    Octokit.user(username).rels[:repos].get.data
+    Octokit.repos(username, type: :all)
   rescue Octokit::NotFound
     []
   end
